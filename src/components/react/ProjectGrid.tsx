@@ -12,10 +12,9 @@ if (typeof window !== 'undefined') {
 
 interface ProjectGridProps {
   projects: Project[];
-  onProjectClick: (project: Project) => void;
 }
 
-const ProjectGrid: React.FC<ProjectGridProps> = ({ projects, onProjectClick }) => {
+const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
   const gridSettings = useStore(gridSettingsStore);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -65,7 +64,7 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projects, onProjectClick }) =
       {projects.map((project) => (
         <a href={`/project/${project.slug}`} key={project.id}>
           <div className="project-card">
-            <ProjectCard project={project} onClick={onProjectClick} />
+            <ProjectCard project={project} />
           </div>
         </a>
       ))}

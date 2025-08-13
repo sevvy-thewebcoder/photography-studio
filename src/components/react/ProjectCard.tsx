@@ -4,10 +4,9 @@ import type { Project } from '../../types/project';
 
 interface ProjectCardProps {
   project: Project;
-  onClick: (project: Project) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -44,7 +43,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
     <div
       ref={cardRef}
       className="relative aspect-[4/5] cursor-pointer group overflow-hidden"
-      onClick={() => onClick(project)}
     >
       <img
         src={project.coverImage}

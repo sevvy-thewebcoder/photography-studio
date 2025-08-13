@@ -14,7 +14,7 @@ import netlify from '@astrojs/netlify';
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  site: 'https://vercel.com/',
+  site: 'https://netlify.com/',
 
   vite: {
     plugins: [tailwindcss()]

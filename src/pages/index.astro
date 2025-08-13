@@ -7,6 +7,8 @@ import { ProjectSchema } from "../types/project";
 const validatedProjects = mockProjects.map((project) =>
 	ProjectSchema.parse(project)
 );
+
+export const prerender = true;
 ---
 
 <Layout title="Susan Buth - Photography Studio">
@@ -15,13 +17,7 @@ const validatedProjects = mockProjects.map((project) =>
 		<button class="uppercase">[Fashion & Portrait]</button>
 	</section>
 	<section class="flex p-10">
-		<ProjectGrid
-			projects={validatedProjects}
-			onProjectClick={(project) => {
-				window.location.href = `/project/${project.id}`;
-			}}
-			client:load
-		/>
+		<ProjectGrid projects={validatedProjects} client:load />
 	</section>
 </Layout>
 
