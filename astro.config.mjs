@@ -7,7 +7,7 @@ import react from '@astrojs/react';
 
 
 
-import vercel from '@astrojs/vercel';
+import netlify from '@astrojs/netlify';
 
 
 
@@ -21,5 +21,5 @@ export default defineConfig({
   },
 
   integrations: [react()],
-  adapter: vercel(),
+  adapter: netlify(),
 });
