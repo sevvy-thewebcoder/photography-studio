@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
 
-
+import vercel from '@astrojs/vercel'
 
 import netlify from '@astrojs/netlify';
 
@@ -21,5 +21,5 @@ export default defineConfig({
   },
 
   integrations: [react()],
-  adapter: netlify(),
+  adapter: vercel(),
 });
