@@ -1,0 +1,35 @@
+---
+import GridController from "../react/GridController";
+---
+
+<header
+	class="sticky top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
+>
+	<div class="flex justify-between items-center container mx-auto px-4 py-4">
+		<!-- Left Navigation -->
+		<div class="flex items-center space-x-6">
+			<a
+				href="/archive"
+				class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+			>
+				Archive
+			</a>
+			<a
+				href="/information"
+				class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+			>
+				Information
+			</a>
+		</div>
+
+		<!-- Center Logo -->
+		<a href="/">
+			<h1 class="text-2xl font-bold tracking-wider">SUSAN BUTH</h1>
+		</a>
+
+		<!-- Right Navigation -->
+		<div>
+			<GridController client:load />
+		</div>
+	</div>
+</header>

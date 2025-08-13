@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectGrid from "../components/react/ProjectGrid";
+import { mockProjects } from "../db/database";
+import { ProjectSchema } from "../types/project";
+
+const validatedProjects = mockProjects.map((project) =>
+	ProjectSchema.parse(project)
+);
+---
+
+<Layout title="Susan Buth - Photography Studio">
+	<section class="flex justify-center items-center gap-5 p-10">
+		<button class="uppercase">[Body & Swim]</button>
+		<button class="uppercase">[Fashion & Portrait]</button>
+	</section>
+	<section class="flex p-10">
+		<ProjectGrid
+			projects={validatedProjects}
+			onProjectClick={(project) => {
+				window.location.href = `/project/${project.id}`;
+			}}
+			client:load
+		/>
+	</section>
+</Layout>
+
+<style>
+	/* Custom slider styling */
+	.slider::-webkit-slider-thumb {
+		appearance: none;
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+		background: #000;
+		cursor: pointer;
+	}
+
+	.slider::-moz-range-thumb {
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+		background: #000;
+		cursor: pointer;
+		border: none;
+	}
+</style>

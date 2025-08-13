@@ -1,0 +1,60 @@
+---
+import { getAllProjects } from "../../db/database";
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = getAllProjects();
+---
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+	<!-- Category filters -->
+	<div class="flex justify-center mb-8">
+		<div class="flex space-x-8 text-sm uppercase tracking-wider">
+			<button
+				class="hover:text-gray-600 transition-colors border-b-2 border-transparent hover:border-gray-300"
+			>
+				All
+			</button>
+			<button
+				class="hover:text-gray-600 transition-colors border-b-2 border-transparent hover:border-gray-300"
+			>
+				Fashion & Portrait
+			</button>
+			<button
+				class="hover:text-gray-600 transition-colors border-b-2 border-transparent hover:border-gray-300"
+			>
+				Commercial
+			</button>
+		</div>
+	</div>
+
+	<!-- Image grid -->
+	<div
+		class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1"
+	>
+		{projects.map((project) => <ProjectCard project={project} />)}
+	</div>
+</section>
+
+<script>
+	// Filter functionality
+	const filterButtons = document.querySelectorAll("button");
+	const projectCards = document.querySelectorAll(".group");
+
+	filterButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			// Remove active class from all buttons
+			filterButtons.forEach((btn) => {
+				btn.classList.remove("border-black");
+				btn.classList.add("border-transparent");
+			});
+
+			// Add active class to clicked button
+			button.classList.remove("border-transparent");
+			button.classList.add("border-black");
+
+			// Filter logic would go here
+			const filter = button.textContent?.toLowerCase();
+			console.log("Filter by:", filter);
+		});
+	});
+</script>
